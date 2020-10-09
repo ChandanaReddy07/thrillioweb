@@ -1,11 +1,8 @@
 package com.myproject.thrillio.manager;
 
-import java.util.List;
-
 import com.myproject.thrillio.constants.Gender;
 import com.myproject.thrillio.constants.UserType;
 import com.myproject.thrillio.dao.UserDao;
-import com.myproject.thrillio.entities.BookMark;
 import com.myproject.thrillio.entities.User;
 import com.myproject.thrillio.util.StringUtil;
 
