@@ -7,10 +7,10 @@
 <title>thrill.io</title>
 </head>
 <body style="font-family:Arial;font-size:20px;">
-	<div style="height:65px;align: center;background: #DB5227;font-family: Arial;color: white;"">
+	<div style="height:65px;align: center;background:#25CCF7;font-family: Arial;color: white;"">
 		<br><b>
 		<a href="" style="font-family:garamond;font-size:34px;margin:0 0 0 10px;color:white;text-decoration: none;">thrill.io</a></b>          
-		<div style="height:25px;background: #DB5227;font-family: Arial;color: white;">
+		<div style="height:50px;background:#25CCF7;font-family: Arial;color: white;">
 			<b>
 			<a href="<%=request.getContextPath()%>/bookmark" style="font-size:16px;color:white;margin-left:1150px;text-decoration:none;">Browse</a>
 			<a href="<%=request.getContextPath()%>/auth/logout" style="font-size:16px;color:white;margin-left:10px;text-decoration:none;">Logout</a>
@@ -37,7 +37,9 @@
 					 Rating: <span style="color: #B13100;">${book.amazonRating}</span>
 					 <br><br>
 					 Publication Year: <span style="color: #B13100;">${book.publicationYear}</span>
-					</td>
+				
+					 <a href = "<%=request.getContextPath()%>/bookmark/remove?bid=${book.id}" style="font-size:18px;color:#0058A6;font-weight:bold;text-decoration:none">remove</a>
+				 	</td>
 				  </tr>
 				  <tr>
 		     	    <td>&nbsp;</td>

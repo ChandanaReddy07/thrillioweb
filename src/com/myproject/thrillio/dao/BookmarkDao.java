@@ -188,12 +188,12 @@ public BookMark getBook(long bookId) {
 	Book book = null;
 	
 	try {
-		Class.forName("com.mysql.jdbc.Driver");
+		Class.forName("com.mysql.cj.jdbc.Driver");
 	} catch (ClassNotFoundException e) {
 		e.printStackTrace();
 	}
 	
-	try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jid_thrillio?useSSL=false", "root", "root");
+	try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jid_thrillio", "root", "993863211r");
 			Statement stmt = conn.createStatement();) {
 		String query = "Select b.id, title, image_url, publication_year, p.name, GROUP_CONCAT(a.name SEPARATOR ',') AS authors, book_genre_id, amazon_rating, created_date"
 				+ " from Book b, Publisher p, Author a, Book_Author ba "
@@ -219,6 +219,24 @@ public BookMark getBook(long bookId) {
 		e.printStackTrace();
 	}
 	return book;
+}
+public void removeBook(long bId, Long userId) {
+	try {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+	} catch (ClassNotFoundException e) {
+		e.printStackTrace();
+	}
+	try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jid_thrillio", "root", "993863211r");
+			Statement stmt = conn.createStatement();) {
+		String query = "delete from user_book where user_id =  "+userId+" and book_id = "+bId;
+		System.out.println(query);
+    	stmt.execute(query);
+    	System.out.println("dlted");
+		
+    	
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
 }
 		
 }

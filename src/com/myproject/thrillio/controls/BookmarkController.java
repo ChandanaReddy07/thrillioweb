@@ -19,7 +19,7 @@ import com.myproject.thrillio.manager.UserManager;
 /**
  * Servlet implementation class MyBooks
  */
-@WebServlet(urlPatterns = { "/bookmark", "/bookmark/save", "/bookmark/mybooks" })
+@WebServlet(urlPatterns = { "/bookmark", "/bookmark/save", "/bookmark/mybooks","/bookmark/remove" })
 public class BookmarkController extends HttpServlet {
 
 	/*
@@ -37,14 +37,29 @@ public class BookmarkController extends HttpServlet {
 		System.out.println("her in do get of bc");
 		
 		RequestDispatcher dispatcher = null;
-		
+				
 		System.out.println("servlet path" + request.getServletPath());
 		if(request.getSession().getAttribute("userId")!=null) {
 			
 			System.out.println(request.getSession().getAttribute("userId")+" user ID");
 			Long userId=(long)request.getSession().getAttribute("userId");
 			System.out.println(userId+" user ID2");
-			if (request.getServletPath().contains("save")) {
+		
+			if (request.getServletPath().contains("remove")) {
+				
+				dispatcher = request.getRequestDispatcher("/mybooks.jsp");
+				String bid = request.getParameter("bid");
+				
+				User user = UserManager.getInstance().getUser(userId);
+//				BookMark book = BookMarkMannager.getInstance().getBook(Long.parseLong(bid));
+				BookmarkManager.getInstance().removeBook( Long.parseLong(bid), userId);
+				
+				
+				Collection<BookMark> list = BookmarkManager.getInstance().getBooks(false, userId);
+				System.out.println(list);
+				request.setAttribute("books", list);
+			}
+				 if (request.getServletPath().contains("save")) {
 				// save
 				dispatcher = request.getRequestDispatcher("/mybooks.jsp");
 				
@@ -86,7 +101,11 @@ public class BookmarkController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("her in do post of bc");
+		
+		
+		
 		doGet(request, response);
+	
 	}
 
 	public void saveUserBookmark(User user, BookMark bookmark) {

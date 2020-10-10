@@ -131,5 +131,9 @@ public class BookmarkManager {
 		// TODO Auto-generated method stub
 		return dao.getBook(bookId);
 	}
+	public void removeBook(long bId, Long userId) {
+		dao.removeBook(bId,userId);
+		
+	}
 
 }
