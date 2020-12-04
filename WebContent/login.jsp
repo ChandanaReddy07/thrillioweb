@@ -7,9 +7,9 @@
 <title>Login</title>
 </head>
 <body>
-	<div style="height:65px;align: center;background:#2B2B52;font-family: Arial;color: white;"">
+	<div style="height:65px;align: center;background:#2B2B52;font-family: Arial;color: black;"">
 		<br><b>
-		<a href="" style="font-family:garamond;font-size:34px;margin:0 0 0 10px;color:white;text-decoration: none;">thrill.io</a></b>          
+		<a href="" style="font-family:garamond;font-size:38px;margin:0 0 0 10px;color:white;text-decoration: none;">thrill.io</a></b>          
 	</div>
 	<br><br>
 	<form method="POST" action="<%=request.getContextPath()%>/auth">

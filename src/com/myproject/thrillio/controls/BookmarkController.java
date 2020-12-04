@@ -47,7 +47,7 @@ public class BookmarkController extends HttpServlet {
 		
 			if (request.getServletPath().contains("remove")) {
 				
-				dispatcher = request.getRequestDispatcher("/mybooks.jsp");
+				dispatcher = request.getRequestDispatcher("/browse.jsp");
 				String bid = request.getParameter("bid");
 				
 				User user = UserManager.getInstance().getUser(userId);

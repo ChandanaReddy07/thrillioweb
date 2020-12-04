@@ -7,7 +7,7 @@
 <title>thrill.io</title>
 </head>
 <body style="font-family:Arial;font-size:20px;">
-	<div style="height:65px;align: center;background:#25CCF7;font-family: Arial;color: white;"">
+	<div style="height:65px;align: center;background:#25CCF7;font-family: Arial;color: black;"">
 		<br><b>
 		<a href="" style="font-family:garamond;font-size:34px;margin:0 0 0 10px;color:white;text-decoration: none;">thrill.io</a></b>          
 		<div style="height:50px;background:#25CCF7;font-family: Arial;color: white;">
